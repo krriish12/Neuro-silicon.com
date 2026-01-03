@@ -1,0 +1,31 @@
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Home from './pages/Home'
+import CoursesPage from './pages/CoursesPage'
+import InternshipsPage from './pages/InternshipsPage'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import LeadModal from './components/LeadModal'
+
+export default function App() {
+  return (
+    <div>
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/courses" element={<CoursesPage />} />
+        <Route path="/internships" element={<InternshipsPage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+
+      <Footer />
+
+      <LeadModal />
+    </div>
+  )
+}
