@@ -3,21 +3,30 @@ import { Link } from 'react-router-dom'
 
 export default function Hero() {
   return (
-    <header id="home" className="hero-section text-light">
-      <div className="container py-6">
+    <header id="home" className="hero-section">
+      <div className="hero-container">
         <div className="row align-items-center">
-          <div className="col-lg-7">
-            <h1 className="display-5 fw-bold">Practical Training & Internships</h1>
-            <p className="lead">Industry-aligned Data Science and VLSI Engineering courses with mentorship and real projects.</p>
-            <div className="mt-4">
-              <Link className="btn btn-primary btn-lg me-3" to="/courses">Explore Courses</Link>
-              <Link className="btn btn-outline-light btn-lg" to="/contact">Contact Us</Link>
+          <div className="col-lg-6 hero-left">
+            <h1 className="hero-title">Industry-ready <span className="accent">Data Science</span> & <span className="accent">VLSI</span> training</h1>
+            <p className="hero-lead">Hands-on labs, mentorship and real projects that help you build a career — not just certificates.</p>
+
+            <div className="hero-ctas">
+              <Link className="btn btn-cta btn-lg" to="/courses">Explore Courses</Link>
+              <Link className="btn btn-outline-ghost btn-lg" to="/contact">Talk to Advisor</Link>
+            </div>
+
+            <div className="d-flex gap-4 mt-4 small text-light stats-row">
+              <div><strong>Placement</strong><div className="small text-muted">4500+</div></div>
+              <div><strong>Enrollments</strong><div className="small text-muted">10000+</div></div>
+              <div><strong>Courses</strong><div className="small text-muted">40+</div></div>
             </div>
           </div>
-          <div className="col-lg-5 d-none d-lg-block">
-            <div className="hero-card p-4 shadow-sm bg-white text-dark">
-              <h5 className="mb-2">Next Batch: Jan 2026</h5>
-              <p className="small mb-0">Short, practical batches — limited seats. Apply to secure your spot.</p>
+
+          <div className="col-lg-6 d-none d-lg-block">
+            <div className="hero-visual">
+              <div className="visual-card card-a" aria-hidden="true"></div>
+              <div className="visual-card card-b" aria-hidden="true"></div>
+              <div className="visual-card phone-mock" aria-hidden="true"></div>
             </div>
           </div>
         </div>

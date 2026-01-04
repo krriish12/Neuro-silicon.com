@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Contact(){
   return (
-    <div className="container my-5">
+    <main className="page-content container my-5">
       <h1 className="mb-4">Contact</h1>
       <p>For enquiries, email <a href="mailto:info@neuro-silicon.com">info@neuro-silicon.com</a> or use the form below.</p>
 
@@ -23,6 +23,6 @@ export default function Contact(){
           <button type="button" className="btn btn-primary">Send</button>
         </div>
       </form>
-    </div>
+    </main>
   )
 }

@@ -1,44 +1,89 @@
-/* Global styles to mimic vlsiguru-like layout and feel (colors, hero, cards) */
+/* Global styles and refined hero/header/footer to match provlogic-like look */
 
 :root{
-  --primary:#0d6efd;
-  --dark:#0b1a2b;
-  --muted:#6c757d;
+  --primary: #0a7cff;
+  --dark: #071427;
+  --muted: #7b8a95;
+  --accent: #2ec4b6;
+  --hero-max-width: 1200px;
+  --nav-height: 72px;
 }
 
+/* --- Header / Nav --- */
 .main-nav{
-  background: linear-gradient(90deg,#071427 0%, #0b2b45 100%);
-  border-bottom: 1px solid rgba(255,255,255,0.03);
+  background: transparent;
+  border-bottom: 0;
+  padding: .8rem 0;
+  transition: background .25s ease, backdrop-filter .25s ease;
 }
+.main-nav.fixed-top{
+  backdrop-filter: blur(6px);
+  z-index: 1100;
+}
+.main-nav.scrolled{
+  background: linear-gradient(90deg,#071427cc,#0b2b45cc);
+  box-shadow: 0 6px 20px rgba(2,6,23,0.12);
+}
+.main-nav .navbar-brand img{ height:44px; }
+.main-nav{
+  background: #ffffff;
+  border-bottom: 1px solid rgba(11,26,43,0.06);
+  padding: .6rem 0;
+  transition: background .25s ease, box-shadow .25s ease;
+}
+.main-nav.fixed-top{
+  z-index: 1100;
+}
+.main-nav.scrolled{
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(2,6,23,0.06);
+}
+.main-nav .navbar-brand img{ height:44px; }
+.main-nav .nav-link{ color: var(--dark); margin: 0 .6rem; }
+.main-nav .nav-link.active{ color: var(--primary); font-weight:600; }
+.btn-cta{ background: linear-gradient(90deg,var(--primary),#0a8bff); color:#fff; border-radius:10px; padding:.45rem .9rem; border:none; box-shadow: 0 8px 24px rgba(10,80,200,0.12); }
 
-.main-nav .navbar-brand{ color: #fff; }
-.main-nav .nav-link{ color: rgba(255,255,255,0.85); }
-.main-nav .nav-link:hover{ color: #fff; }
+/* Brand text beside logo to ensure readability when logo is light/transparent */
+.brand-text{ color: #ffffff; font-weight:700; margin-left:.6rem; letter-spacing:-0.2px; font-size:1.02rem; line-height:1; }
+.brand-neuro{ color: var(--accent); }
 
+/* --- Hero --- */
 .hero-section{
-  background: linear-gradient(180deg, #0b2b45 0%, #0b3a59 60%);
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  background: linear-gradient(180deg, #071427 0%, #07334a 60%);
+  padding-top: 8rem;
+  padding-bottom: 6rem;
+  color: #fff;
+}
+.hero-container{ max-width: var(--hero-max-width); margin: 0 auto; }
+.hero-left{ padding: 2.6rem 1rem; }
+.hero-title{ font-size: 2.6rem; line-height:1.06; margin-bottom:.6rem; font-weight:800; }
+.hero-title .accent{ color: var(--accent); }
+.hero-lead{ font-size:1.05rem; color: rgba(255,255,255,0.9); margin-bottom:1.3rem; }
+
+.hero-ctas{ display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+.btn-outline-ghost{ background: rgba(255,255,255,0.06); color:#fff; border:1px solid rgba(255,255,255,0.12); padding:.65rem 1rem; border-radius:10px; }
+.btn-cta.btn-lg{ padding:.9rem 1.3rem; font-weight:600; border-radius:12px; }
+
+.stats-row { color: rgba(255,255,255,0.95); }
+.stats-row strong{ display:block; font-size:1rem; }
+/* Force hero stats numbers to be readable on dark backgrounds */
+.hero-section .stats-row .small,
+.hero-section .stats-row .small.text-muted{
+  color: rgba(255,255,255,0.95) !important;
 }
 
-.hero-card{
-  border-radius: 8px;
-}
+.hero-visual{ position:relative; height:380px; border-radius:16px; display:flex; align-items:center; justify-content:center; }
+.visual-card{ position:absolute; border-radius:12px; box-shadow: 0 20px 50px rgba(2,6,23,0.2); }
+.visual-card.card-a{ width:66%; height:70%; left:6%; top:8%; background: linear-gradient(135deg,#e8fbf6,#d6f2ec); transform: rotate(-3deg); }
+.visual-card.card-b{ width:54%; height:56%; right:6%; bottom:8%; background: linear-gradient(135deg,#ffffff,#e6f7f1); transform: rotate(4deg); }
+.visual-card.phone-mock{ width:160px; height:320px; right:12%; top:18%; background: linear-gradient(180deg,#fff,#f0f8f6); border-radius:20px; }
 
-.course-card{
-  border: 1px solid rgba(10,20,30,0.08);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-.course-card:hover{ transform: translateY(-6px); box-shadow: 0 10px 30px rgba(2,6,23,0.08); }
+/* --- Footer --- */
+.site-footer{ border-top: 1px solid rgba(255,255,255,0.03); }
+.site-footer .footer-link{ color: rgba(255,255,255,0.85); }
+.site-footer .footer-link:hover{ color:#fff; text-decoration:underline; }
 
-.site-footer{ border-top: 1px solid rgba(255,255,255,0.02); }
-
-/* Responsive tweaks */
-@media (max-width: 767px){
-  .hero-section{ padding-top: 3rem; padding-bottom: 3rem; }
-}
-
-/* Lead modal styles */
+/* --- Lead modal styles (keep existing) --- */
 .leadmodal-overlay{
   position:fixed; inset:0; background:rgba(3,12,24,0.7); display:flex; align-items:center; justify-content:center; z-index:2000; padding:1rem;
 }
@@ -46,4 +91,20 @@
 .leadmodal .bg-primary{ background: linear-gradient(180deg,#073b5a,#05324a); }
 .leadmodal .form-control, .leadmodal .form-select, .leadmodal textarea{ border-radius:6px; }
 .leadmodal .btn-close-white{ filter:invert(1); opacity:0.9; }
+
+/* --- Responsive --- */
+@media (max-width: 991px){
+  .hero-section{ padding-top:5rem; }
+  .hero-title{ font-size:1.8rem; }
+  .hero-visual{ display:none; }
+}
+
+/* When the header is fixed, pages that are not the hero need top offset */
+.page-content{ padding-top: var(--nav-height); }
+
+@media (min-width: 992px){
+  .hero-title{ font-size: 3.4rem; }
+  .hero-lead{ font-size: 1.1rem; }
+}
+
 

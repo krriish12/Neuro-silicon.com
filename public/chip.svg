@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="512" height="512" role="img" aria-label="Neuro-silicon chip icon">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#2ec4b6"/>
+      <stop offset="100%" stop-color="#0a7cff"/>
+    </linearGradient>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#08202b" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- rounded square background -->
+  <rect x="6" y="6" width="116" height="116" rx="18" fill="#071427" />
+
+  <!-- soft glow border -->
+  <rect x="10" y="10" width="108" height="108" rx="14" fill="url(#g1)" opacity="0.08"/>
+
+  <!-- central chip body -->
+  <rect x="36" y="36" width="56" height="56" rx="8" fill="#f7ffff" filter="url(#s)"/>
+
+  <!-- inner chip core -->
+  <rect x="50" y="50" width="28" height="28" rx="4" fill="url(#g1)" />
+
+  <!-- traces: top/bottom/left/right -->
+  <g stroke="#dff7f6" stroke-width="2.5" stroke-linecap="round" fill="none">
+    <path d="M64 36 V22" />
+    <path d="M64 92 V78" />
+    <path d="M36 64 H22" />
+    <path d="M92 64 H78" />
+  </g>
+
+  <!-- short pins -->
+  <g stroke="#bfeef0" stroke-width="2" stroke-linecap="round" fill="none">
+    <path d="M50 36 L50 18" />
+    <path d="M78 36 L78 18" />
+    <path d="M36 50 L18 50" />
+    <path d="M36 78 L18 78" />
+    <path d="M92 50 L110 50" />
+    <path d="M92 78 L110 78" />
+    <path d="M50 92 L50 110" />
+    <path d="M78 92 L78 110" />
+  </g>
+
+  <!-- tiny decorative circuits -->
+  <g stroke="#e9fffb" stroke-width="1.1" stroke-linecap="round" fill="none" opacity="0.9">
+    <path d="M58 50 H46" />
+    <path d="M70 78 H82" />
+    <path d="M58 78 H46" />
+    <path d="M70 50 H82" />
+  </g>
+
+</svg>
