@@ -7,8 +7,8 @@ export default function Hero() {
       <div className="hero-container">
         <div className="row align-items-center">
           <div className="col-lg-6 hero-left">
-            <h1 className="hero-title">Industry-ready <span className="accent">Data Science</span> & <span className="accent">VLSI</span> training</h1>
-            <p className="hero-lead">Hands-on labs, mentorship and real projects that help you build a career — not just certificates.</p>
+            <h1 className="hero-title">Master <span className="accent">Data Science</span> & <span className="accent">VLSI Engineering</span> for Tomorrow's Tech Industry</h1>
+            <p className="hero-lead">Transform from learner to industry professional with hands-on training in AI/ML, semiconductor design, and advanced chip verification. Build real-world projects with expert mentorship.</p>
 
             <div className="hero-ctas">
               <Link className="btn btn-cta btn-lg" to="/courses">Explore Courses</Link>
@@ -16,9 +16,9 @@ export default function Hero() {
             </div>
 
             <div className="d-flex gap-4 mt-4 small text-light stats-row">
-              <div><strong>Placement</strong><div className="small text-muted">4500+</div></div>
-              <div><strong>Enrollments</strong><div className="small text-muted">10000+</div></div>
-              <div><strong>Courses</strong><div className="small text-muted">40+</div></div>
+              <div><strong>Placements</strong><div className="small text-muted">4500+</div></div>
+              <div><strong>Students Trained</strong><div className="small text-muted">10000+</div></div>
+              <div><strong>Industry Projects</strong><div className="small text-muted">500+</div></div>
             </div>
           </div>
 
