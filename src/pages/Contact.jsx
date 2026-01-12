@@ -18,7 +18,7 @@ export default function Contact(){
 
             <div className="mb-3">
               <h3 className="h6 text-primary">Phone</h3>
-              <p>+91-XXXX-XXXXXX (Mon-Sat, 9 AM - 6 PM IST)</p>
+              <p><a href="tel:+919000852209">+91-9000852209</a> (Mon-Sat, 9 AM - 6 PM IST)</p>
             </div>
 
             <div className="mb-4">
