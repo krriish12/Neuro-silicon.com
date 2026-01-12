@@ -8,6 +8,7 @@ import InternshipsPage from './pages/InternshipsPage'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import LeadModal from './components/LeadModal'
+import WhatsAppButton from './components/WhatsAppButton'
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
       <Footer />
 
       <LeadModal />
+      <WhatsAppButton />
     </div>
   )
 }
