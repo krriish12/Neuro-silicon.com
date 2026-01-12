@@ -7,7 +7,6 @@ export default function Header() {
     <nav className="navbar navbar-expand-lg main-nav fixed-top">
       <div className="container">
         <Link className="navbar-brand d-flex align-items-center gap-2" to="/">
-          <Logo height={50} />
           <div className="d-flex flex-column" style={{ lineHeight: '1.2' }}>
             <span style={{
               fontSize: '1.5rem',
@@ -16,7 +15,7 @@ export default function Header() {
               letterSpacing: '2px',
               fontFamily: 'Arial, sans-serif'
             }}>
-              NEURO SILICON
+              NEUROSILICON
             </span>
             <span style={{
               fontSize: '0.85rem',
