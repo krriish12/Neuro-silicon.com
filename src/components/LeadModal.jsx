@@ -18,8 +18,8 @@ export default function LeadModal(){
 
   function handleSubmit(){
     const { name, email, phone, course, status, message } = form
-    const text = Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nCourse: ${course}\nCurrent Status: ${status}\nMessage: ${message}
-    const url = https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}
+    const text = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nCourse: ${course}\nCurrent Status: ${status}\nMessage: ${message}`
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`
     window.open(url, '_blank')
     setShow(false)
   }
