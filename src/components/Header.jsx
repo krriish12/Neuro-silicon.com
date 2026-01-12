@@ -1,12 +1,17 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import Logo from './Logo'
+import { FaMicrochip } from "react-icons/fa6"
 
 export default function Header() {
   return (
     <nav className="navbar navbar-expand-lg main-nav fixed-top">
       <div className="container">
         <Link className="navbar-brand d-flex align-items-center gap-2" to="/">
+          
+          {/* Logo Icon */}
+          <FaMicrochip size={30} color="#0d3b66" />
+
+          {/* Brand Text */}
           <div className="d-flex flex-column" style={{ lineHeight: '1.2' }}>
             <span style={{
               fontSize: '1.5rem',
@@ -22,12 +27,14 @@ export default function Header() {
               fontWeight: '600',
               color: '#5fad56',
               letterSpacing: '1px',
-              marginTop: '-2px'
+              marginTop: '-2px',
+              marginLeft : '24px',
             }}>
               BUILDING TOMORROW
             </span>
           </div>
         </Link>
+
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
