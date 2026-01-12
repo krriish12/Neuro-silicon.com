@@ -1,48 +1,40 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import ExcelJS from "exceljs";
 import fs from "fs";
+import path from "path";
+import ExcelJS from "exceljs";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
+const PORT = 5000;
+
 app.use(cors());
 app.use(bodyParser.json());
 
-const FILE_PATH = "./leads.xlsx";
+const FILE_PATH = path.join(__dirname, "leads.xlsx");
 
-app.post("/api/save-lead", async (req, res) => {
-  try {
-    const { name, email, phone, interest, message } = req.body;
+const ADMIN_ID = "KrishnaGana@12";
+const ADMIN_PASS = "Muddukrishna@12";
 
-    const workbook = new ExcelJS.Workbook();
-    let worksheet;
+app.post("/api/admin-login", (req, res) => {
+  const { id, password } = req.body;
 
-    if (fs.existsSync(FILE_PATH)) {
-      await workbook.xlsx.readFile(FILE_PATH);
-      worksheet = workbook.getWorksheet(1);
-    } else {
-      worksheet = workbook.addWorksheet("Leads");
-      worksheet.addRow(["Name", "Email", "Phone", "Interest Area", "Message", "Date"]);
-    }
-
-    worksheet.addRow([
-      name,
-      email,
-      phone,
-      interest,
-      message,
-      new Date().toLocaleString()
-    ]);
-
-    await workbook.xlsx.writeFile(FILE_PATH);
-
+  if (id === ADMIN_ID && password === ADMIN_PASS) {
     res.json({ success: true });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ success: false });
+  } else {
+    res.status(401).json({ success: false, message: "Invalid credentials" });
   }
 });
 
-app.listen(5000, () => {
-  console.log("Backend running at http://localhost:5000");
+app.get("/api/download-leads", (req, res) => {
+  if (!fs.existsSync(FILE_PATH)) return res.status(404).send("No file found");
+  res.download(FILE_PATH, "leads.xlsx");
+});
+
+app.listen(PORT, () => {
+  console.log("Server running on port " + PORT);
 });
