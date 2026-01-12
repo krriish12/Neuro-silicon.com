@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const WHATSAPP_NUMBER = '918056121311' // country code + number (modify if needed)
+const WHATSAPP_NUMBER = '919000852209' // country code + number (modify if needed)
 
 export default function LeadModal(){
   const [show, setShow] = useState(false)
@@ -18,8 +18,8 @@ export default function LeadModal(){
 
   function handleSubmit(){
     const { name, email, phone, course, status, message } = form
-    const text = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nCourse: ${course}\nCurrent Status: ${status}\nMessage: ${message}`
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`
+    const text = Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nCourse: ${course}\nCurrent Status: ${status}\nMessage: ${message}
+    const url = https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}
     window.open(url, '_blank')
     setShow(false)
   }
@@ -32,7 +32,7 @@ export default function LeadModal(){
         <div className="row g-0">
           <div className="col-lg-6 p-4 bg-white">
             <div className="mb-3 badge bg-warning text-dark">Most preferred</div>
-            <h3 className="fw-bold">VLSI training Institute<br/><span className="text-primary">Since 2012</span></h3>
+            <h3 className="fw-bold">VLSI & Data Science Training Institute<br/><span className="text-primary">Since 2020</span></h3>
             <ul className="mt-3 small text-muted">
               <li>Best Price Assured</li>
               <li>Highest Placement Record</li>
