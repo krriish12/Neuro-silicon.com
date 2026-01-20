@@ -24,9 +24,27 @@ export default function Hero() {
 
           <div className="col-lg-6 d-none d-lg-block">
             <div className="hero-visual">
-              <div className="visual-card card-a" aria-hidden="true"></div>
-              <div className="visual-card card-b" aria-hidden="true"></div>
-              <div className="visual-card phone-mock" aria-hidden="true"></div>
+              <div className="visual-card card-a" aria-hidden="true">
+                <img
+                  src="https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=600&h=400&fit=crop"
+                  alt="AI and Machine Learning"
+                  className="visual-image"
+                />
+              </div>
+              <div className="visual-card card-b" aria-hidden="true">
+                <img
+                  src="https://images.unsplash.com/photo-1537498425277-c283d32ef9db?w=500&h=350&fit=crop"
+                  alt="Semiconductor Technology"
+                  className="visual-image"
+                />
+              </div>
+              <div className="visual-card phone-mock" aria-hidden="true">
+                <img
+                  src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=160&h=320&fit=crop"
+                  alt="Tech Innovation"
+                  className="visual-image"
+                />
+              </div>
             </div>
           </div>
         </div>
