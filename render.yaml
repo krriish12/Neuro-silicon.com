@@ -7,5 +7,7 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 5000
+      - key: ADMIN_ID
+        value: KrishnaGana@12
+      - key: ADMIN_PASS
+        value: Muddukrishna@12

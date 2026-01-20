@@ -18,6 +18,29 @@ export default function LeadModal(){
 
   function handleSubmit(){
     const { name, email, phone, course, status, message } = form
+
+    // Save to localStorage
+    try {
+      const existingLeads = JSON.parse(localStorage.getItem("neuro-silicon-leads") || "[]");
+      const newLead = {
+        id: Date.now(),
+        type: "Lead Modal",
+        name: name,
+        email: email,
+        phone: phone,
+        course: course,
+        status: status,
+        message: message || "N/A",
+        timestamp: new Date().toISOString(),
+        formattedDate: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })
+      };
+      existingLeads.push(newLead);
+      localStorage.setItem("neuro-silicon-leads", JSON.stringify(existingLeads));
+    } catch (error) {
+      console.error("Error saving lead:", error);
+    }
+
+    // Open WhatsApp
     const text = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nCourse: ${course}\nCurrent Status: ${status}\nMessage: ${message}`
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`
     window.open(url, '_blank')
