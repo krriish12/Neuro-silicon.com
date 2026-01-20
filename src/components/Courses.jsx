@@ -1,83 +1,87 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const sampleCourses = [
+const courses = [
   {
-    title: 'Data Science — Python & ML',
-    desc: 'Master Python programming, pandas, NumPy, scikit-learn, and deployment of ML models. Includes real-world case studies in predictive analytics.',
-    duration: '12 Weeks',
-    level: 'Beginner to Advanced'
+    id: 'data-science',
+    title: 'Data Science & AI/ML',
+    instructor: 'Industry Experts',
+    rating: 4.8,
+    students: 2500,
+    duration: '6 Months',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
+    description: 'Master Python, Machine Learning, Deep Learning, and AI technologies to become an industry-ready data scientist.'
   },
   {
-    title: 'VLSI Design & Verification',
-    desc: 'Comprehensive training in RTL design using Verilog/SystemVerilog, synthesis, STA, DFT, and UVM-based functional verification methodologies.',
-    duration: '16 Weeks',
-    level: 'Intermediate'
+    id: 'vlsi-functional-verification',
+    title: 'VLSI Functional Verification',
+    instructor: 'Industry Experts',
+    rating: 4.9,
+    students: 2000,
+    duration: '6 Months',
+    image: 'https://images.unsplash.com/photo-1537498425277-c283d32ef9db?w=600&h=400&fit=crop',
+    description: 'Learn SystemVerilog, UVM, and advanced functional verification methodologies to become a skilled verification engineer.'
   },
   {
-    title: 'Advanced Machine Learning & AI',
-    desc: 'Deep learning with TensorFlow/PyTorch, CNN, RNN, NLP, computer vision, and MLOps. Build production-ready AI systems.',
-    duration: '14 Weeks',
-    level: 'Advanced'
-  },
-  {
-    title: 'Physical Design (RTL to GDS)',
-    desc: 'Complete ASIC design flow: floorplanning, placement, CTS, routing, DRC/LVS. Hands-on with industry-standard EDA tools.',
-    duration: '12 Weeks',
-    level: 'Advanced'
-  },
-  {
-    title: 'Big Data & Analytics',
-    desc: 'Apache Spark, Hadoop, data warehousing, SQL/NoSQL databases, and building scalable data pipelines for enterprise applications.',
-    duration: '10 Weeks',
-    level: 'Intermediate'
-  },
-  {
-    title: 'Analog IC Design',
-    desc: 'CMOS circuit design, op-amps, ADC/DAC, PLLs, and layout techniques. Learn SPICE simulation and design optimization.',
-    duration: '14 Weeks',
-    level: 'Advanced'
-  },
-  {
-    title: 'Deep Learning for Computer Vision',
-    desc: 'Image classification, object detection, segmentation, GANs. Work on real projects in autonomous systems and medical imaging.',
-    duration: '12 Weeks',
-    level: 'Advanced'
-  },
-  {
-    title: 'FPGA Design & Prototyping',
-    desc: 'HDL coding, FPGA architecture, timing closure, and rapid prototyping. Includes hands-on projects on Xilinx/Intel platforms.',
-    duration: '10 Weeks',
-    level: 'Intermediate'
+    id: 'react-frontend',
+    title: 'React Frontend Development',
+    instructor: 'Industry Experts',
+    rating: 4.7,
+    students: 1500,
+    duration: '6 Months',
+    image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=400&fit=crop',
+    description: 'Master modern frontend development with React, Redux, TypeScript, and build production-ready web applications.'
   }
 ]
 
 export default function Courses() {
   return (
-    <section id="courses" className="py-5">
+    <section id="courses" className="py-5 bg-light">
       <div className="container">
-        <div className="d-flex justify-content-between align-items-center mb-4">
-          <h2 className="mb-0">Popular Courses</h2>
-          <a href="#contact" className="btn btn-outline-primary">Request Syllabus</a>
-        </div>
+        <h2 className="text-center mb-5">Popular Courses</h2>
 
         <div className="row g-4">
-          {sampleCourses.map((c, i) => (
-            <div className="col-12 col-md-6 col-lg-3" key={i}>
-              <div className="card course-card h-100">
+          {courses.map((course) => (
+            <div className="col-12 col-md-6 col-lg-4" key={course.id}>
+              <div className="card h-100 shadow-sm course-card">
+                <img
+                  src={course.image}
+                  className="card-img-top"
+                  alt={course.title}
+                  style={{ height: '200px', objectFit: 'cover' }}
+                />
                 <div className="card-body d-flex flex-column">
-                  <h5 className="card-title">{c.title}</h5>
-                  <p className="card-text small text-muted">{c.desc}</p>
-                  <div className="mt-3">
-                    <div className="d-flex justify-content-between small mb-2">
-                      <span className="text-primary"><strong>Duration:</strong> {c.duration}</span>
-                    </div>
-                    <div className="small mb-3">
-                      <span className="badge bg-secondary">{c.level}</span>
-                    </div>
+                  <h5 className="card-title">{course.title}</h5>
+                  <p className="text-muted small mb-2">By {course.instructor}</p>
+
+                  <div className="d-flex align-items-center mb-2">
+                    <span className="text-warning me-2">
+                      {'★'.repeat(Math.floor(course.rating))}
+                      {course.rating % 1 >= 0.5 ? '½' : ''}
+                    </span>
+                    <span className="small text-muted">{course.rating} ({course.students}+ students)</span>
                   </div>
-                  <div className="mt-auto">
-                    <Link to="/contact" className="btn btn-primary btn-sm w-100">Enroll Now</Link>
+
+                  <p className="card-text small mb-3">{course.description}</p>
+
+                  <div className="small text-muted mb-3">
+                    <i className="bi bi-clock me-1"></i>
+                    Duration: {course.duration}
+                  </div>
+
+                  <div className="mt-auto d-flex gap-2">
+                    <Link
+                      to={`/course/${course.id}`}
+                      className="btn btn-outline-primary flex-grow-1"
+                    >
+                      More Details
+                    </Link>
+                    <Link
+                      to="/contact"
+                      className="btn btn-primary flex-grow-1"
+                    >
+                      Enroll Now
+                    </Link>
                   </div>
                 </div>
               </div>

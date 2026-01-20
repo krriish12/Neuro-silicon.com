@@ -38,6 +38,16 @@ export default function CareerPaths() {
         'Telecommunications: 5G/6G infrastructure, networking equipment, RF systems',
         'Space & Defense: Satellites, avionics, radiation-hardened electronics'
       ]
+    },
+    {
+      domain: 'React Frontend Development Applications',
+      areas: [
+        'E-commerce Platforms: Build scalable online stores, shopping carts, payment integrations',
+        'Social Media & Communication: Real-time chat apps, social networks, collaboration tools',
+        'Enterprise Dashboards: Admin panels, analytics dashboards, data visualization',
+        'SaaS Applications: Cloud-based software, subscription management, multi-tenant apps',
+        'Progressive Web Apps: Offline-capable apps, mobile-responsive interfaces, cross-platform solutions'
+      ]
     }
   ]
 
@@ -51,7 +61,7 @@ export default function CareerPaths() {
 
           <div className="row g-4">
             {applications.map((app, idx) => (
-              <div className="col-md-6" key={idx}>
+              <div className="col-md-6 col-lg-4" key={idx}>
                 <div className="card h-100">
                   <div className="card-body">
                     <h3 className="h5 card-title text-primary mb-3">{app.domain}</h3>

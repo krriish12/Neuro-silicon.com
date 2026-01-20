@@ -16,9 +16,8 @@ export default function Hero() {
             </div>
 
             <div className="d-flex gap-4 mt-4 small text-light stats-row">
-              <div><strong>Placements</strong><div className="small text-muted">4500+</div></div>
-              <div><strong>Students Trained</strong><div className="small text-muted">10000+</div></div>
-              <div><strong>Industry Projects</strong><div className="small text-muted">500+</div></div>
+              <div><strong>Students Trained</strong><div className="small text-muted">500+</div></div>
+              <div><strong>Industry Projects</strong><div className="small text-muted">50+</div></div>
             </div>
           </div>
 
