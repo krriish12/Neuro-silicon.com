@@ -3,18 +3,18 @@ import React from 'react'
 export default function CareerPaths() {
   const careers = {
     dataScience: [
-      { role: 'Data Scientist', salary: '$95K - $150K', companies: 'Google, Amazon, Microsoft' },
-      { role: 'Machine Learning Engineer', salary: '$100K - $160K', companies: 'Meta, Apple, Tesla' },
-      { role: 'AI Research Scientist', salary: '$120K - $180K', companies: 'OpenAI, DeepMind, NVIDIA' },
-      { role: 'Data Analyst', salary: '$70K - $110K', companies: 'Netflix, Uber, Airbnb' },
-      { role: 'MLOps Engineer', salary: '$90K - $140K', companies: 'AWS, Azure, GCP' }
+      { role: 'Data Scientist', companies: 'Google, Amazon, Microsoft' },
+      { role: 'Machine Learning Engineer', companies: 'Meta, Apple, Tesla' },
+      { role: 'AI Research Scientist', companies: 'OpenAI, DeepMind, NVIDIA' },
+      { role: 'Data Analyst', companies: 'Netflix, Uber, Airbnb' },
+      { role: 'MLOps Engineer', companies: 'AWS, Azure, GCP' }
     ],
     vlsi: [
-      { role: 'VLSI Design Engineer', salary: '$85K - $140K', companies: 'Intel, AMD, NVIDIA' },
-      { role: 'Verification Engineer', salary: '$90K - $145K', companies: 'Qualcomm, Broadcom, Marvell' },
-      { role: 'Physical Design Engineer', salary: '$95K - $150K', companies: 'Apple, Samsung, TSMC' },
-      { role: 'FPGA Engineer', salary: '$80K - $130K', companies: 'Xilinx, Intel, Microchip' },
-      { role: 'Analog IC Designer', salary: '$100K - $160K', companies: 'Texas Instruments, Analog Devices' }
+      { role: 'VLSI Design Engineer', companies: 'Intel, AMD, NVIDIA' },
+      { role: 'Verification Engineer', companies: 'Qualcomm, Broadcom, Marvell' },
+      { role: 'Physical Design Engineer', companies: 'Apple, Samsung, TSMC' },
+      { role: 'FPGA Engineer', companies: 'Xilinx, Intel, Microchip' },
+      { role: 'Analog IC Designer', companies: 'Texas Instruments, Analog Devices' }
     ]
   }
 
@@ -84,7 +84,6 @@ export default function CareerPaths() {
                       <thead>
                         <tr>
                           <th className="small">Role</th>
-                          <th className="small">Salary Range</th>
                           <th className="small">Top Companies</th>
                         </tr>
                       </thead>
@@ -92,7 +91,6 @@ export default function CareerPaths() {
                         {careers.dataScience.map((career, idx) => (
                           <tr key={idx}>
                             <td className="small"><strong>{career.role}</strong></td>
-                            <td className="small text-success">{career.salary}</td>
                             <td className="small text-muted">{career.companies}</td>
                           </tr>
                         ))}
@@ -114,7 +112,6 @@ export default function CareerPaths() {
                       <thead>
                         <tr>
                           <th className="small">Role</th>
-                          <th className="small">Salary Range</th>
                           <th className="small">Top Companies</th>
                         </tr>
                       </thead>
@@ -122,7 +119,6 @@ export default function CareerPaths() {
                         {careers.vlsi.map((career, idx) => (
                           <tr key={idx}>
                             <td className="small"><strong>{career.role}</strong></td>
-                            <td className="small text-success">{career.salary}</td>
                             <td className="small text-muted">{career.companies}</td>
                           </tr>
                         ))}
@@ -130,32 +126,6 @@ export default function CareerPaths() {
                     </table>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Success Stories */}
-        <div className="text-center bg-white p-4 rounded">
-          <h2 className="h4 mb-3">Our Alumni Success</h2>
-          <p className="text-muted mb-4">Join thousands of successful professionals who started their journey with us</p>
-          <div className="row g-3">
-            <div className="col-md-4">
-              <div className="border rounded p-3">
-                <h3 className="h2 text-primary mb-1">850+</h3>
-                <p className="small text-muted mb-0">Alumni at FAANG Companies</p>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="border rounded p-3">
-                <h3 className="h2 text-success mb-1">$105K</h3>
-                <p className="small text-muted mb-0">Average Starting Salary</p>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="border rounded p-3">
-                <h3 className="h2 text-info mb-1">92%</h3>
-                <p className="small text-muted mb-0">Placement Rate</p>
               </div>
             </div>
           </div>
