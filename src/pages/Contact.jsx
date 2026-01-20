@@ -13,17 +13,24 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:5000/api/save-lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form)
-      });
+      // Get existing leads from localStorage
+      const existingLeads = JSON.parse(localStorage.getItem("leads") || "[]");
 
-      if (!res.ok) throw new Error("Network response was not ok");
+      // Add new lead with timestamp
+      const newLead = {
+        ...form,
+        timestamp: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+        phone: form.phone || "N/A"
+      };
+
+      existingLeads.push(newLead);
+
+      // Save back to localStorage
+      localStorage.setItem("leads", JSON.stringify(existingLeads));
 
       alert("Thank you! Your details have been submitted.");
       setForm({ name: "", email: "", phone: "", interest: "", message: "" });

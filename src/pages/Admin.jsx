@@ -1,4 +1,8 @@
 import { useState } from "react";
+import * as XLSX from "xlsx";
+
+const ADMIN_ID = "KrishnaGana@12";
+const ADMIN_PASS = "Muddukrishna@12";
 
 export default function Admin() {
   const [id, setId] = useState("");
@@ -6,20 +10,55 @@ export default function Admin() {
   const [error, setError] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const handleLogin = async () => {
-    const res = await fetch("http://localhost:5000/api/admin-login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id, password }),
-    });
-
-    const data = await res.json();
-
-    if (data.success) {
+  const handleLogin = () => {
+    if (id === ADMIN_ID && password === ADMIN_PASS) {
       setLoggedIn(true);
       setError("");
     } else {
       setError("Invalid ID or Password");
+    }
+  };
+
+  const handleDownloadExcel = () => {
+    try {
+      // Get leads from localStorage
+      const leads = JSON.parse(localStorage.getItem("leads") || "[]");
+
+      if (leads.length === 0) {
+        alert("No leads data available to download.");
+        return;
+      }
+
+      // Prepare data for Excel
+      const worksheetData = leads.map(lead => ({
+        Timestamp: lead.timestamp,
+        Name: lead.name,
+        Email: lead.email,
+        Phone: lead.phone,
+        Interest: lead.interest,
+        Message: lead.message
+      }));
+
+      // Create workbook and worksheet
+      const worksheet = XLSX.utils.json_to_sheet(worksheetData);
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, "Leads");
+
+      // Set column widths
+      worksheet["!cols"] = [
+        { wch: 20 }, // Timestamp
+        { wch: 25 }, // Name
+        { wch: 30 }, // Email
+        { wch: 15 }, // Phone
+        { wch: 20 }, // Interest
+        { wch: 50 }  // Message
+      ];
+
+      // Download the file
+      XLSX.writeFile(workbook, "leads.xlsx");
+    } catch (error) {
+      console.error("Error downloading Excel:", error);
+      alert("Failed to download Excel file. Please try again.");
     }
   };
 
@@ -71,9 +110,9 @@ export default function Admin() {
     >
       <div className="text-center p-4 shadow rounded" style={{ backgroundColor: "#fff" }}>
         <h2>Download Leads Excel</h2>
-        <a href="http://localhost:5000/api/download-leads">
-          <button className="btn btn-success mt-3">Download Excel</button>
-        </a>
+        <button className="btn btn-success mt-3" onClick={handleDownloadExcel}>
+          Download Excel
+        </button>
       </div>
     </div>
   );
