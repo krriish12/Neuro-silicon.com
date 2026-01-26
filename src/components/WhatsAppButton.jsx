@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function WhatsAppButton() {
   const handleClick = () => {
-    window.open('https://whatsapp.com/channel/0029VbCB2MF7j6g3506ILB2P', '_blank')
+    window.open('https://whatsapp.com/channel/0029Vb7Z7Pp9RZAdUGaoox0c', '_blank')
   }
 
   return (

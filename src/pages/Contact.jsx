@@ -36,6 +36,22 @@ export default function Contact() {
       existingLeads.push(newLead);
       localStorage.setItem("neuro-silicon-leads", JSON.stringify(existingLeads));
 
+      // Send to WhatsApp
+      const whatsappNumber = "919000852209";
+      const whatsappMessage = `*New Contact Form Submission*\n\n` +
+        `*Name:* ${form.name}\n` +
+        `*Email:* ${form.email}\n` +
+        `*Phone:* ${form.phone || "N/A"}\n` +
+        `*Course Interest:* ${form.interest}\n` +
+        `*Message:* ${form.message}\n\n` +
+        `_Submitted on ${new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}_`;
+
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+      // Open WhatsApp in a new tab
+      window.open(whatsappUrl, "_blank");
+
       // Show success
       setIsSubmitting(false);
       setShowSuccess(true);

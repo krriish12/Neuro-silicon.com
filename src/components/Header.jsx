@@ -3,11 +3,21 @@ import { NavLink, Link } from 'react-router-dom'
 import { FaMicrochip } from "react-icons/fa6"
 
 export default function Header() {
+  const closeMenu = () => {
+    const navCollapse = document.getElementById('nav');
+    if (navCollapse && navCollapse.classList.contains('show')) {
+      const bsCollapse = new window.bootstrap.Collapse(navCollapse, {
+        toggle: false
+      });
+      bsCollapse.hide();
+    }
+  };
+
   return (
     <nav className="navbar navbar-expand-lg main-nav fixed-top">
       <div className="container">
-        <Link className="navbar-brand d-flex align-items-center gap-2" to="/">
-          
+        <Link className="navbar-brand d-flex align-items-center gap-2" to="/" onClick={closeMenu}>
+
           {/* Logo Icon */}
           <FaMicrochip size={30} color="#0d3b66" />
 
@@ -41,13 +51,13 @@ export default function Header() {
 
         <div className="collapse navbar-collapse" id="nav">
           <ul className="navbar-nav ms-auto align-items-lg-center">
-            <li className="nav-item"><NavLink className="nav-link" to="/">Home</NavLink></li>
-            <li className="nav-item"><NavLink className="nav-link" to="/courses">Courses</NavLink></li>
-            <li className="nav-item"><NavLink className="nav-link" to="/internships">Internships</NavLink></li>
-            <li className="nav-item"><NavLink className="nav-link" to="/about">About</NavLink></li>
-            <li className="nav-item"><NavLink className="nav-link" to="/contact">Contact</NavLink></li>
+            <li className="nav-item"><NavLink className="nav-link" to="/" onClick={closeMenu}>Home</NavLink></li>
+            <li className="nav-item"><NavLink className="nav-link" to="/courses" onClick={closeMenu}>Courses</NavLink></li>
+            <li className="nav-item"><NavLink className="nav-link" to="/internships" onClick={closeMenu}>Internships</NavLink></li>
+            <li className="nav-item"><NavLink className="nav-link" to="/about" onClick={closeMenu}>About</NavLink></li>
+            <li className="nav-item"><NavLink className="nav-link" to="/contact" onClick={closeMenu}>Contact</NavLink></li>
             <li className="nav-item ms-3 d-none d-lg-block">
-              <Link className="btn btn-cta btn-sm" to="/contact">Enroll Now</Link>
+              <Link className="btn btn-cta btn-sm" to="/contact" onClick={closeMenu}>Enroll Now</Link>
             </li>
           </ul>
         </div>

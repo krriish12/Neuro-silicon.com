@@ -7,7 +7,7 @@ const courseData = {
     subtitle: 'Master Data Science and Artificial Intelligence',
     duration: '6 Months',
     rating: 4.8,
-    students: 2500,
+    students: 500,
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
     summary: 'Duration: 6 months, designed to develop expertise in Data Science, Machine Learning, and AI technologies with hands-on projects.',
     targetAudience: [
@@ -44,7 +44,7 @@ const courseData = {
     subtitle: 'SystemVerilog and UVM-based Functional Verification',
     duration: '6 Months',
     rating: 4.9,
-    students: 2000,
+    students: 1000,
     image: 'https://images.unsplash.com/photo-1537498425277-c283d32ef9db?w=800&h=500&fit=crop',
     summary: 'Duration: 6 months, designed to develop expertise in SystemVerilog language constructs and UVM-based functional verification.',
     targetAudience: [

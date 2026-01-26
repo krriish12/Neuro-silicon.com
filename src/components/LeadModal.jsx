@@ -51,58 +51,163 @@ export default function LeadModal(){
 
   return (
     <div className="leadmodal-overlay">
-      <div className="leadmodal card shadow-lg">
-        <div className="row g-0">
-          <div className="col-lg-6 p-4 bg-white">
-            <div className="mb-3 badge bg-warning text-dark">Most preferred</div>
-            <h3 className="fw-bold">VLSI & Data Science Training Institute<br/><span className="text-primary">Since 2020</span></h3>
-            <ul className="mt-3 small text-muted">
-              <li>Best Price Assured</li>
-              <li>Highest Placement Record</li>
-              <li>Lab Sessions + Interview Prep</li>
-              <li>50+ VLSI Courses Offline/Online</li>
-            </ul>
-            <div className="mt-4 p-3 bg-dark text-white rounded">Training + Lab + Interview prep = Highest Placement Records</div>
+      <div className="leadmodal-modern">
+        <button className="leadmodal-close" onClick={()=>setShow(false)} aria-label="Close">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          </svg>
+        </button>
+
+        <div className="leadmodal-content">
+          <div className="leadmodal-left">
+            <div className="leadmodal-badge">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 1L10.09 5.26L14.82 5.94L11.41 9.27L12.18 14L8 11.77L3.82 14L4.59 9.27L1.18 5.94L5.91 5.26L8 1Z"/>
+              </svg>
+              Most Preferred Training Institute
+            </div>
+
+            <h2 className="leadmodal-title">
+              Transform Your Career in
+              <span className="gradient-text"> Tech</span>
+            </h2>
+
+            <p className="leadmodal-subtitle">
+              Join India's leading VLSI, Data Science & Web Development training institute since 2020
+            </p>
+
+            <div className="leadmodal-features">
+              <div className="feature-item">
+                <div className="feature-icon">💼</div>
+                <div className="feature-text">
+                  <strong>Highest Placement Rate</strong>
+                  <span>Industry-leading job placement assistance</span>
+                </div>
+              </div>
+              <div className="feature-item">
+                <div className="feature-icon">🎯</div>
+                <div className="feature-text">
+                  <strong>Hands-on Training</strong>
+                  <span>Lab sessions + Interview preparation</span>
+                </div>
+              </div>
+              <div className="feature-item">
+                <div className="feature-icon">🚀</div>
+                <div className="feature-text">
+                  <strong>50+ Courses</strong>
+                  <span>Offline & Online learning options</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="leadmodal-guarantee">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" strokeWidth="2"/>
+                <path d="M6 10L9 13L14 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+              Best Price Guarantee • Expert Faculty • Job Assistance
+            </div>
           </div>
 
-          <div className="col-lg-6 p-4 bg-primary text-light">
-            <div className="d-flex justify-content-between align-items-start mb-3">
-              <h5 className="mb-0">Become the highest-paying VLSI engineer!</h5>
-              <button className="btn-close btn-close-white" onClick={()=>setShow(false)} aria-label="Close"></button>
-            </div>
+          <div className="leadmodal-right">
+            <h3 className="leadmodal-form-title">Start Your Journey Today</h3>
+            <p className="leadmodal-form-subtitle">Fill the form to unlock exclusive offers</p>
 
-            <div className="mt-3">
-              <div className="mb-2">
-                <input name="name" value={form.name} onChange={update} className="form-control" placeholder="Full Name" />
+            <form className="leadmodal-form" onSubmit={(e)=>{e.preventDefault(); handleSubmit()}}>
+              <div className="form-group">
+                <label htmlFor="name">Full Name</label>
+                <input
+                  id="name"
+                  name="name"
+                  value={form.name}
+                  onChange={update}
+                  className="form-input"
+                  placeholder="Enter your full name"
+                  required
+                />
               </div>
-              <div className="mb-2">
-                <input name="email" value={form.email} onChange={update} className="form-control" placeholder="Email" />
+
+              <div className="form-group">
+                <label htmlFor="email">Email Address</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={form.email}
+                  onChange={update}
+                  className="form-input"
+                  placeholder="you@example.com"
+                  required
+                />
               </div>
-              <div className="mb-2">
-                <input name="phone" value={form.phone} onChange={update} className="form-control" placeholder="Phone number" />
+
+              <div className="form-group">
+                <label htmlFor="phone">Phone Number</label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  value={form.phone}
+                  onChange={update}
+                  className="form-input"
+                  placeholder="+91 xxxxx xxxxx"
+                  required
+                />
               </div>
-              <div className="mb-2">
-                <select name="course" value={form.course} onChange={update} className="form-select">
-                  <option>Others</option>
-                  <option>Data Science — Python & ML</option>
-                  <option>VLSI Design & Verification</option>
-                  <option>Advanced Machine Learning</option>
+
+              <div className="form-group">
+                <label htmlFor="course">Select Course</label>
+                <select
+                  id="course"
+                  name="course"
+                  value={form.course}
+                  onChange={update}
+                  className="form-select"
+                >
+                  <option value="Others">Others</option>
+                  <option value="VLSI Design & Verification">VLSI Design & Verification</option>
+                  <option value="Data Science — Python & ML">Data Science — Python & ML</option>
+                  <option value="React Development">React Development</option>
+                  <option value="Full Stack Development">Full Stack Development</option>
                 </select>
               </div>
-              <div className="mb-2">
-                <select name="status" value={form.status} onChange={update} className="form-select">
-                  <option>Student</option>
-                  <option>Working Professional</option>
-                  <option>Looking for Internship</option>
+
+              <div className="form-group">
+                <label htmlFor="status">Current Status</label>
+                <select
+                  id="status"
+                  name="status"
+                  value={form.status}
+                  onChange={update}
+                  className="form-select"
+                >
+                  <option value="Student">Student</option>
+                  <option value="Working Professional">Working Professional</option>
+                  <option value="Looking for Internship">Looking for Internship</option>
+                  <option value="Career Change">Career Change</option>
                 </select>
               </div>
-              <div className="mb-3">
-                <textarea name="message" value={form.message} onChange={update} className="form-control" rows="3" placeholder="Message (optional)"></textarea>
+
+              <div className="form-group">
+                <label htmlFor="message">Message (Optional)</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={form.message}
+                  onChange={update}
+                  className="form-textarea"
+                  rows="3"
+                  placeholder="Tell us about your goals..."
+                ></textarea>
               </div>
-              <div className="d-grid">
-                <button className="btn btn-light text-primary" onClick={handleSubmit}>Submit Now & Unlock Your Offer!</button>
-              </div>
-            </div>
+
+              <button type="submit" className="btn-submit">
+                <span>Get Started Now</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M7 3L14 10L7 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </button>
+            </form>
           </div>
         </div>
       </div>

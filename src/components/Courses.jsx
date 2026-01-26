@@ -7,7 +7,7 @@ const courses = [
     title: 'Data Science & AI/ML',
     instructor: 'Industry Experts',
     rating: 4.8,
-    students: 2500,
+    students: 500,
     duration: '6 Months',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
     description: 'Master Python, Machine Learning, Deep Learning, and AI technologies to become an industry-ready data scientist.'
@@ -17,7 +17,7 @@ const courses = [
     title: 'VLSI Functional Verification',
     instructor: 'Industry Experts',
     rating: 4.9,
-    students: 2000,
+    students: 1000,
     duration: '6 Months',
     image: 'https://images.unsplash.com/photo-1537498425277-c283d32ef9db?w=600&h=400&fit=crop',
     description: 'Learn SystemVerilog, UVM, and advanced functional verification methodologies to become a skilled verification engineer.'
