@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { FaMicrochip } from "react-icons/fa6"
 
 export default function Header() {
+  const [showAnnouncement, setShowAnnouncement] = useState(true)
+
   const closeMenu = () => {
     const navCollapse = document.getElementById('nav');
     if (navCollapse && navCollapse.classList.contains('show')) {
@@ -14,7 +16,35 @@ export default function Header() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg main-nav fixed-top">
+    <>
+      {/* Announcement Banner */}
+      {showAnnouncement && (
+        <div className="announcement-banner">
+          <div className="announcement-content">
+            <div className="announcement-scroll">
+              <span className="announcement-text">
+                📢 Data Science Awareness Webinar - January 30th, 31st & February 1st | Limited Seats Available!
+                <span className="announcement-highlight">Register Now!</span>
+                📞 Contact: +91 9000852209
+              </span>
+              <span className="announcement-text">
+                📢 Data Science Awareness Webinar - January 30th, 31st & February 1st | Limited Seats Available!
+                <span className="announcement-highlight">Register Now!</span>
+                📞 Contact: +91 9000852209
+              </span>
+            </div>
+          </div>
+          <button
+            className="announcement-close"
+            onClick={() => setShowAnnouncement(false)}
+            aria-label="Close announcement"
+          >
+            ×
+          </button>
+        </div>
+      )}
+
+      <nav className="navbar navbar-expand-lg main-nav fixed-top" style={{ top: showAnnouncement ? '40px' : '0' }}>
       <div className="container">
         <Link className="navbar-brand d-flex align-items-center gap-2" to="/" onClick={closeMenu}>
 
@@ -63,5 +93,6 @@ export default function Header() {
         </div>
       </div>
     </nav>
+    </>
   )
 }
